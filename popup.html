@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON Viewer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <style>
+    @font-face {
+      font-family: 'Geist Mono';
+      src: url('fonts/GeistMono-Regular.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Geist Mono';
+      src: url('fonts/GeistMono-Medium.woff2') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    :root {
+      --bg: #0a0a0a;
+      --bg-elevated: #111111;
+      --border: #222222;
+      --text: #ededed;
+      --text-muted: #666;
+      --key: #ff6b6b;
+      --string: #7ee787;
+      --number: #79c0ff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      width: 260px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Geist Mono', 'JetBrains Mono', monospace;
+      font-size: 12px;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 16px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+    .header-title {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .legend {
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .legend-title {
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }
+
+    .legend-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .legend-label { color: var(--text-muted); font-size: 11px; }
+    .legend-sample { font-size: 11px; }
+    .c-key    { color: var(--key); }
+    .c-string { color: var(--string); }
+    .c-number { color: var(--number); }
+    .c-bool   { color: #f97583; }
+    .c-null   { color: #8b949e; }
+
+    .example {
+      padding: 12px 16px;
+      background: var(--bg-elevated);
+      border-bottom: 1px solid var(--border);
+      line-height: 1.7;
+    }
+
+    .footer {
+      padding: 10px 16px;
+      font-size: 10px;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <svg viewBox="0 0 128 128" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Left brace { -->
+      <path d="M46 30 L33 30 L33 58 L27 64 L33 70 L33 98 L46 98" stroke="#ff6b6b" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <!-- Right brace } -->
+      <path d="M82 30 L95 30 L95 58 L101 64 L95 70 L95 98 L82 98" stroke="#7ee787" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <!-- Dots -->
+      <circle cx="54" cy="64" r="4" fill="#79c0ff"/>
+      <circle cx="64" cy="64" r="4" fill="#79c0ff"/>
+      <circle cx="74" cy="64" r="4" fill="#79c0ff"/>
+    </svg>
+    <span class="header-title">JSON Viewer</span>
+  </div>
+
+  <div class="legend">
+    <div class="legend-title">Token colors</div>
+    <div class="legend-row">
+      <span class="legend-label">keys</span>
+      <span class="legend-sample c-key">"$schema"</span>
+    </div>
+    <div class="legend-row">
+      <span class="legend-label">strings</span>
+      <span class="legend-sample c-string">"JSONLens.json"</span>
+    </div>
+    <div class="legend-row">
+      <span class="legend-label">numbers</span>
+      <span class="legend-sample c-number">42</span>
+    </div>
+    <div class="legend-row">
+      <span class="legend-label">booleans</span>
+      <span class="legend-sample c-bool">true</span>
+    </div>
+    <div class="legend-row">
+      <span class="legend-label">null</span>
+      <span class="legend-sample c-null">null</span>
+    </div>
+  </div>
+
+  <div class="example">
+    <div>
+      <span style="color:#555">{</span>
+    </div>
+    <div style="padding-left:16px">
+      <span class="c-key">"$schema"</span><span style="color:#555">: </span><span class="c-string">"https://openapi.vercel.sh/vercel.json"</span><span style="color:#444">,</span>
+    </div>
+    <div style="padding-left:16px">
+      <span class="c-key">"bunVersion"</span><span style="color:#555">: </span><span class="c-string">"1.x"</span>
+    </div>
+    <div>
+      <span style="color:#555">}</span>
+    </div>
+  </div>
+
+  <div class="footer">
+    Navigate to any raw JSON URL to activate
+  </div>
+</body>
+</html>
