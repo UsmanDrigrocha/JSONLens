@@ -413,7 +413,7 @@
       '<path d="M82 30L95 30L95 58L101 64L95 70L95 98L82 98" stroke="#7ee787" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>' +
       '<circle cx="54" cy="64" r="4" fill="#79c0ff"/><circle cx="64" cy="64" r="4" fill="#79c0ff"/><circle cx="74" cy="64" r="4" fill="#79c0ff"/>' +
       "</svg>" +
-      '<span class="jv-toolbar-label">JSON Viewer</span>' +
+      '<span class="jv-toolbar-label">JSONLens </span>' +
       "</div>" +
       '<div class="jv-toolbar-divider"></div>' +
       '<span class="jv-size-badge">' +
